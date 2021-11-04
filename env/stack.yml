@@ -1,0 +1,180 @@
+version: "3.0"
+services:
+    node1.pokt:
+        privileged: true
+        container_name: debug_pokt_node_1
+        cap_add:
+          - SYS_PTRACE
+        security_opt:
+          - "seccomp:unconfined"
+          - "apparmor:unconfined"
+        build:
+          context: ${CWD}/env/docker/
+          args:
+            - BRANCH_NAME=${POCKET_RELEASE_TAG}
+        command: /usr/bin/expect /home/app/.pocket/local_command.sh
+        ports:
+          - 8081:8081
+          - 26657:26657
+          - 2345:2345
+        expose:
+          - "8081"
+          - "26657"
+          - "26656"
+          - "46656"
+          - "53"
+          - "2345"
+        env_file:
+          - ${CWD}/env/.node1.env
+        networks:
+          - pocket
+        volumes:
+          - ${CWD}/env/docker/local_command.sh:/home/app/.pocket/local_command.sh
+          - ${CWD}/env/shared/chains.json:/home/app/.pocket/config/chains.json
+          - ${CWD}/env/shared/genesis.json:/home/app/.pocket/config/genesis.json
+          - ${CWD}/env/config/config.node1.json:/home/app/.pocket/config/config.json
+          - ${CWD}/env/data/pokt-net.node1.pokt:/home/app/.pocket/data
+
+    node2.pokt:
+        privileged: true
+        container_name: debug_pokt_node_2
+        build:
+          context: ${CWD}/env/docker/
+          args:
+            - BRANCH_NAME=${POCKET_RELEASE_TAG}
+        command: /usr/bin/expect /home/app/.pocket/local_command.sh
+        cap_add:
+          - SYS_PTRACE
+        security_opt:
+          - "seccomp:unconfined"
+          - "apparmor:unconfined"
+        ports:
+          - 8082:8081
+          - 26658:26657
+          - 2346:2346
+        expose:
+          - "8081"
+          - "26657"
+          - "26656"
+          - "46656"
+          - "53"
+          - "2346"
+        env_file:
+          - ${CWD}/env/.node2.env
+        networks:
+          - pocket
+        volumes:
+          - ${CWD}/env/docker/local_command.sh:/home/app/.pocket/local_command.sh
+          - ${CWD}/env/shared/chains.json:/home/app/.pocket/config/chains.json
+          - ${CWD}/env/shared/genesis.json:/home/app/.pocket/config/genesis.json
+          - ${CWD}/env/config/config.node2.json:/home/app/.pocket/config/config.json
+          - ${CWD}/env/data/pokt-net.node2.pokt:/home/app/.pocket/data
+
+    node3.pokt:
+        privileged: true
+        container_name: debug_pokt_node_3
+        build:
+          context: ${CWD}/env/docker/
+          args:
+            - BRANCH_NAME=${POCKET_RELEASE_TAG}
+        command: /usr/bin/expect /home/app/.pocket/local_command.sh
+        cap_add:
+          - SYS_PTRACE
+        security_opt:
+          - "seccomp:unconfined"
+          - "apparmor:unconfined"
+        ports:
+          - 8083:8081
+          - 26659:26657
+          - 2347:2347
+        expose:
+          - "8081"
+          - "26657"
+          - "26656"
+          - "46656"
+          - "53"
+          - "2347"
+        env_file:
+          - ${CWD}/env/.node3.env
+        networks:
+          - pocket
+        volumes:
+          - ${CWD}/env/docker/local_command.sh:/home/app/.pocket/local_command.sh
+          - ${CWD}/env/shared/chains.json:/home/app/.pocket/config/chains.json
+          - ${CWD}/env/shared/genesis.json:/home/app/.pocket/config/genesis.json
+          - ${CWD}/env/config/config.node3.json:/home/app/.pocket/config/config.json
+          - ${CWD}/env/data/pokt-net.node3.pokt:/home/app/.pocket/data
+
+    node4.pokt:
+        privileged: true
+        container_name: debug_pokt_node_4
+        build:
+          context: ${CWD}/env/docker/
+          args:
+            - BRANCH_NAME=${POCKET_RELEASE_TAG}
+        command: /usr/bin/expect /home/app/.pocket/local_command.sh
+        cap_add:
+          - SYS_PTRACE
+        security_opt:
+          - "seccomp:unconfined"
+          - "apparmor:unconfined"
+        ports:
+          - 8084:8081
+          - 26660:26657
+          - 2348:2348
+        expose:
+          - "8081"
+          - "26657"
+          - "26656"
+          - "46656"
+          - "53"
+          - "2348"
+        env_file:
+          - ${CWD}/env/.node4.env
+        networks:
+          - pocket
+        volumes:
+          - ${CWD}/env/docker/local_command.sh:/home/app/.pocket/local_command.sh
+          - ${CWD}/env/shared/chains.json:/home/app/.pocket/config/chains.json
+          - ${CWD}/env/shared/genesis.json:/home/app/.pocket/config/genesis.json
+          - ${CWD}/env/config/config.node4.json:/home/app/.pocket/config/config.json
+          - ${CWD}/env/data/pokt-net.node4.pokt:/home/app/.pocket/data
+
+    node5.pokt:
+        privileged: true
+        container_name: debug_pokt_node_5
+        build:
+          context: ${CWD}/env/docker/
+          args:
+            - BRANCH_NAME=${POCKET_RELEASE_TAG}
+        command: /usr/bin/expect /home/app/.pocket/local_command.sh
+        cap_add:
+          - SYS_PTRACE
+        security_opt:
+          - "seccomp:unconfined"
+          - "apparmor:unconfined"
+        ports:
+          - 8085:8081
+          - 26661:26657
+          - 2349:2349
+        expose:
+          - "8081"
+          - "26657"
+          - "26656"
+          - "46656"
+          - "53"
+          - "2349"
+        env_file:
+          - ${CWD}/env/.node5.env
+        networks:
+          - pocket
+        volumes:
+          - ${CWD}/env/docker/local_command.sh:/home/app/.pocket/local_command.sh
+          - ${CWD}/env/shared/chains.json:/home/app/.pocket/config/chains.json
+          - ${CWD}/env/shared/genesis.json:/home/app/.pocket/config/genesis.json
+          - ${CWD}/env/config/config.node5.json:/home/app/.pocket/config/config.json
+          - ${CWD}/env/data/pokt-net.node5.pokt:/home/app/.pocket/data
+
+networks:
+    pocket:
+        driver: bridge
