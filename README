@@ -1,0 +1,11 @@
+Proof of concept of dlv for pocket
+
+1. Start stack using: CWD=$(PWD) POCKET_RELEASE_TAG=RC-0.6.3.6 ./pluggable-debuggers/1-start.sh
+2. Install dlv on containers using: ./pluggable-debuggers/2-install-delve.sh
+3. Hook dlv to running pocket instances using: ./pluggable-debuggers/3-hook-delve.sh
+4. Start debugging from your machine using: $GOPATH/bin/dlv connect localhost:port
+    node1 port: 2345
+    node2 port: 2346
+    node3 port: 2347
+    node4 port: 2348
+    node5 port: 2349
